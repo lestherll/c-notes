@@ -1,0 +1,42 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: gcc",
+			"command": "/usr/bin/gcc",
+			"args": [
+				// "-Wall",
+				// "-Werror",
+				"-pedantic",
+				"-std=c99",
+				"-fdiagnostics-color=always",
+				"-g",
+				"${file}",
+				"-o",
+				"${fileDirname}/build/${fileBasenameNoExtension}"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "compiler: /usr/bin/gcc",
+			"dependsOn": ["Make build dir"],
+		},
+		{
+			"type": "shell",
+			"label": "Make build dir",
+			"command": "mkdir",
+			"args": [
+				"-p",
+				"${fileDirname}/build"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			}
+		},
+	]
+}
